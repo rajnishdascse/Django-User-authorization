@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+	<style type="text/css">
+		*{
+			background: rgb(13 17 23);
+			color: white;
+			font-family: sans-serif;
+			letter-spacing: 1px;
+		}
+		input[type='text']
+		{	
+			width: 300px;
+			font-size: 20px;
+			border: 1px solid lime;
+			padding: 10px;
+			
+			
+		}
+		input[type='password']
+		{	
+			width: 300px;
+			font-size: 20px;
+			border: 1px solid lime;
+			padding: 10px;
+			
+
+		}
+
+		input[type='email']
+		{	
+			width: 300px;
+			font-size: 20px;
+			border: 1px solid lime;
+			padding: 10px;
+			
+			
+
+		}
+
+		input[type='submit']
+		{
+			font-size: 20px;	
+			border: 1px solid lime;
+			padding: 10px;
+			transition: 0.5s ease;
+		}
+		input[type='submit']:hover
+		{
+			background: lime;
+			color: black;
+		}
+
+				
+		.form__group label {
+		display: block;
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		}
+
+		.form__group1{
+		display: block;
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		}
+
+		h3{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+<!-- ===========Custom singup form============= -->
+	<h1>Signup Form</h1>
+	
+	<div class="form__group1">
+		{% for message in messages %}
+		<h3>{{message}}</h3>
+		{% endfor %}
+		<form method='POST' action='register'>
+			{% csrf_token %}
+		
+			<input name='username' type="text" placeholder="Username" required><br><br>
+			<input name='email' type="text" placeholder="Email-address" required><br><br>
+			<input name='password' type="password" placeholder="Password" required><br><br>
+			<input name='password2' type="password" placeholder="Confirm Password" required><br><br>
+			<input type="submit" value="Register">
+		</form>
+<!-- ===========Using UserCreation form method=========== -->
+
+<!-- <form class="form" action="{% url 'register' %}" method="POST">
+		{% csrf_token %}
+		{% for field in form %}
+		<div class="form__group form__group">
+		  <label for="input">{{field.label}}</label>
+		  {{field}}
+		</div>
+		{% endfor %}
+		<br><br>
+		 <input type="submit"  name = 'register' value="Signup">
+		 <br><br>
+		 <a href="{% url 'index' %}" class="btn">Back</a> -->
+
+	<!-- </form> -->
+	
+	</div>
+</body>
+</html>

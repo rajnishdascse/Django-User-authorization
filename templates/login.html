@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login page</title>
+	<style type="text/css">
+		*{
+			background: rgb(13 17 23);
+			color: white;
+			font-family: sans-serif;
+			letter-spacing: 1px;
+		}
+		div
+		{
+			position: absolute;
+			transform: translate(100%,50%);
+		}
+		input[type='text']
+		{	
+			width: 300px;
+			font-size: 20px;
+			border: 1px solid lime;
+			padding: 10px;
+		}
+
+		input[type='password']
+		{	
+			width: 300px;
+			font-size: 20px;
+			border: 1px solid lime;
+			padding: 10px;
+		}
+
+		input[type='submit']
+		{
+			font-size: 20px;	
+			border: 1px solid lime;
+			padding: 10px;
+			transition: 0.5s ease;
+		}
+		input[type='submit']:hover
+		{
+			background: lime;
+			color: black;
+		}
+
+		h3{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		{% for message in messages %}
+		<h3>{{message}}</h3>
+		{% endfor %}
+	<h2>Login</h2>
+	<form action="{% url 'login' %}" method="post">
+		{% csrf_token %}
+		<input type="text" name="username" placeholder="Enter Your Username" required>
+		<br><br>
+		<input type="password" name="password" placeholder="Enter Your Password" required>
+		<br><br>
+		<input type="submit" name="login" value="Login">
+		<br><br>
+		 <a href="{% url 'index' %}" class="btn">Back</a>
+
+	</form>
+	</div>
+</body>
+</html>

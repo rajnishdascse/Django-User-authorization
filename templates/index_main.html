@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index Page</title>
+	<style type="text/css">
+		*{
+			background: rgb(13 17 23);
+			color: white;
+			font-family: sans-serif;
+			letter-spacing: 1px;
+		}
+		span
+		{
+			font-size: 30px;
+		}
+		.name
+		{
+			color: dodgerblue;
+		}
+		.lgot
+		{
+			color: red;
+			opacity: 0.8;
+		}
+		input[type='search']
+		{	
+			width: 300px;
+			font-size: 20px;
+			border: 1px solid lime;
+			padding: 10px;
+		}
+		input[type='submit']
+		{
+			font-size: 20px;	
+			border: 1px solid lime;
+			padding: 10px;
+			transition: 0.5s ease;
+		}
+		input[type='submit']:hover
+		{
+			background: lime;
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<!-- <form action="{% url 'search' %}" method="get"> -->
+		<input type="search" name="query" placeholder="Search by Name">
+		<input type="submit" value="Search">
+	<!-- </form> -->
+	<span>Login as:</span>
+	
+	 <!-- <a href="{% url 'profile' request.session.user %}"> -->
+
+		<!-- <span class="name">{{request.session.user}}</span> -->
+	</a>
+
+	<br>
+
+	<hr>
+	<a href="{% url 'logout' %}" class="lgot">Logout</a>
+</body>
+</html>

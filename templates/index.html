@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+		*{
+			background: rgb(13 17 23);
+			color: white;
+			font-family: sans-serif;
+			letter-spacing: 1px;
+		}
+		.btn
+		{
+			font-size: 20px;	
+			border: 1px solid lime;
+			padding: 10px;
+			transition: 0.5s ease;
+			
+		}
+		.btn:hover
+		{
+			background: lime;
+			color: black;
+		}
+		
+	</style>
+</head>
+<body>
+	{% if request.user.is_authenticated %}
+	<h1>Welcome {{request.user.username}}</h1>
+	<a href="{% url 'logout' %}" class="btn">Logout</a>
+
+	{% else %}
+	<h1> Welcome to the the home page</h1>
+	
+	<a href="{% url 'login' %}" class="btn">Login</a>
+	<a href="{% url 'register' %}" class="btn">Signup</a>
+	<!-- <a href="{% url 'logout' %}" class="btn">Logout</a> -->
+	{% endif %}
+
+
+
+    
+</body>
+</html>
